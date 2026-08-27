@@ -1,13 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import baileyHero from "@/assets/bailey-hero.png";
 
 const navItems = [
   { to: "/", icon: "🏠", label: "Home" },
   { to: "/book", icon: "📖", label: "The Book" },
   { to: "/shop", icon: "🦴", label: "Shop" },
-  { to: "/adopt", icon: "💗", label: "Adopt" },
-  { to: "/farm", icon: "🏡", label: "Shelter Farm" },
   { to: "/activities", icon: "🎨", label: "Fun Zone" },
 ];
 
@@ -19,9 +18,13 @@ export function SiteNav() {
       <nav className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-2 px-3 py-3 sm:gap-3">
         <Link
           to="/"
-          className="font-display outlined-text-sm mr-auto text-2xl text-paper sm:text-3xl"
+          className="mr-auto transition-transform duration-150 hover:scale-105 active:scale-95"
         >
-          Bailey&apos;s World
+          <img
+            src={baileyHero}
+            alt="Bailey's World Logo"
+            className="h-12 w-auto object-contain sm:h-16"
+          />
         </Link>
         {navItems.map((item) => (
           <Link

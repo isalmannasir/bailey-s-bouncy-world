@@ -11,9 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActivitiesRouteImport } from './routes/activities'
-import { Route as AdoptRouteImport } from './routes/adopt'
 import { Route as BookRouteImport } from './routes/book'
-import { Route as FarmRouteImport } from './routes/farm'
 import { Route as ShopRouteImport } from './routes/shop'
 
 const IndexRoute = IndexRouteImport.update({
@@ -26,19 +24,9 @@ const ActivitiesRoute = ActivitiesRouteImport.update({
   path: '/activities',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdoptRoute = AdoptRouteImport.update({
-  id: '/adopt',
-  path: '/adopt',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const BookRoute = BookRouteImport.update({
   id: '/book',
   path: '/book',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FarmRoute = FarmRouteImport.update({
-  id: '/farm',
-  path: '/farm',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ShopRoute = ShopRouteImport.update({
@@ -50,42 +38,34 @@ const ShopRoute = ShopRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
-  '/adopt': typeof AdoptRoute
   '/book': typeof BookRoute
-  '/farm': typeof FarmRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
-  '/adopt': typeof AdoptRoute
   '/book': typeof BookRoute
-  '/farm': typeof FarmRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/activities': typeof ActivitiesRoute
-  '/adopt': typeof AdoptRoute
   '/book': typeof BookRoute
-  '/farm': typeof FarmRoute
   '/shop': typeof ShopRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/activities' | '/adopt' | '/book' | '/farm' | '/shop'
+  fullPaths: '/' | '/activities' | '/book' | '/shop'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/activities' | '/adopt' | '/book' | '/farm' | '/shop'
-  id: '__root__' | '/' | '/activities' | '/adopt' | '/book' | '/farm' | '/shop'
+  to: '/' | '/activities' | '/book' | '/shop'
+  id: '__root__' | '/' | '/activities' | '/book' | '/shop'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ActivitiesRoute: typeof ActivitiesRoute
-  AdoptRoute: typeof AdoptRoute
   BookRoute: typeof BookRoute
-  FarmRoute: typeof FarmRoute
   ShopRoute: typeof ShopRoute
 }
 
@@ -105,25 +85,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ActivitiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/adopt': {
-      id: '/adopt'
-      path: '/adopt'
-      fullPath: '/adopt'
-      preLoaderRoute: typeof AdoptRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/book': {
       id: '/book'
       path: '/book'
       fullPath: '/book'
       preLoaderRoute: typeof BookRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/farm': {
-      id: '/farm'
-      path: '/farm'
-      fullPath: '/farm'
-      preLoaderRoute: typeof FarmRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/shop': {
@@ -139,9 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ActivitiesRoute: ActivitiesRoute,
-  AdoptRoute: AdoptRoute,
   BookRoute: BookRoute,
-  FarmRoute: FarmRoute,
   ShopRoute: ShopRoute,
 }
 export const routeTree = rootRouteImport

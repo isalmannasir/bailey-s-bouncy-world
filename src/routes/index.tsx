@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import baileyHero from "@/assets/bailey-hero.png";
 import bookCover from "@/assets/book-cover.jpg";
-import farmImg from "@/assets/shelter-farm.jpg";
 import { PageShell } from "@/components/site-chrome";
 import {
   BadgeTray,
@@ -21,12 +20,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Hi, I'm Bailey! Bounce into my world: picture books, silly merch, UK dog adoption and the Shelter Farm. Games and colouring pages too!",
+          "Hi, I'm Bailey! Bounce into my world: picture books, silly merch, games, and colouring pages!",
       },
       { property: "og:title", content: "Bailey's World — The Dog With No Chill" },
       {
         property: "og:description",
-        content: "Books, merch, adoption and the Shelter Farm, hosted by one very excited dog.",
+        content: "Books, merch, and games, hosted by one very excited dog.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -77,12 +76,11 @@ function Home() {
       <div className="bg-grass py-16">
         <div className="mx-auto max-w-6xl px-6">
           <SectionTitle>Where do you want to go?</SectionTitle>
-          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               { to: "/book", icon: "📖", title: "Meet the Book", text: "Peek inside the story!" },
               { to: "/shop", icon: "🦴", title: "Bailey's Shop", text: "Books, toys and tees." },
-              { to: "/adopt", icon: "💗", title: "Adopt a Dog", text: "For UK rescue teams." },
-              { to: "/farm", icon: "🏡", title: "Shelter Farm", text: "Bailey's favourite place." },
+              { to: "/activities", icon: "🎨", title: "Fun Zone", text: "Games and activities." },
             ].map((card, i) => (
               <a
                 key={card.to}
@@ -124,32 +122,6 @@ function Home() {
           <div className="mt-8 flex flex-wrap gap-4">
             <StickerLink to="/book" color="teal">Flip through it</StickerLink>
             <StickerLink to="/shop" color="grass">Get a copy</StickerLink>
-          </div>
-        </div>
-      </section>
-
-      <PawDivider />
-
-      <section className="mx-auto max-w-6xl px-6 pb-4">
-        <div className="ink-box overflow-hidden rounded-[2.5rem] bg-paper">
-          <img
-            src={farmImg}
-            alt="The Shelter Farm with a red barn, green hills and Bailey running"
-            width={1280}
-            height={768}
-            loading="lazy"
-            className="h-64 w-full object-cover sm:h-80"
-          />
-          <div className="p-8 text-center">
-            <h2 className="text-4xl text-primary">Bailey visits the Shelter Farm 🐑</h2>
-            <p className="mx-auto mt-3 max-w-xl text-xl text-muted-foreground">
-              Big fields, wobbly lambs and a very muddy dog. Come and see!
-            </p>
-            <div className="mt-6">
-              <StickerLink to="/farm" color="grass" size="lg">
-                Visit the farm
-              </StickerLink>
-            </div>
           </div>
         </div>
       </section>

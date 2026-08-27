@@ -172,8 +172,6 @@ export const BADGES = [
   { id: "home", label: "Hello Bailey" },
   { id: "book", label: "Book Sniffer" },
   { id: "shop", label: "Shop Hound" },
-  { id: "adopt", label: "Big Heart" },
-  { id: "farm", label: "Farm Explorer" },
   { id: "play", label: "Ball Finder" },
 ] as const;
 
